@@ -1,3 +1,4 @@
+import img from "../assets/hero.png";
 export default function Main() {
   return (
     <>
@@ -23,7 +24,7 @@ export default function Main() {
           <button>Get a new meme image 🖼</button>
         </div>
         <div className="meme">
-          <img />
+          <img src={img} />
           <span className="top">welcome to this</span>
           <span className="bottom">tiger is waste</span>
         </div>
