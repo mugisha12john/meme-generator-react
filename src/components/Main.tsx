@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState } from "react";
 export default function Main() {
   const [meme, setMeme] = useState({
     topText: "One does not simple",
@@ -37,7 +37,7 @@ export default function Main() {
     const newImg = allmeme[randomNumber].url;
     setMeme((prev) => ({ ...prev, imageUrl: newImg }));
   }
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { value, name } = e.currentTarget;
     setMeme((prev) => ({
       ...prev,
@@ -52,10 +52,9 @@ export default function Main() {
             Top Text
             <input
               type="text"
-              placeholder={meme.bottomText}
+              placeholder={meme.topText}
               name="topText"
               onChange={handleChange}
-              value={meme.topText}
             />
           </label>
 
