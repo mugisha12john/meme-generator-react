@@ -1,75 +1,62 @@
-# React + TypeScript + Vite
+# Meme Generator (React + TypeScript)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple meme generator built with React and TypeScript.
+It fetches meme templates from the Imgflip API and lets you add custom top and bottom text.
 
-Currently, two official plugins are available:
+## Preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![Meme Generator Preview](image.png)
 
-## React Compiler
+## Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- Fetches meme templates from `https://api.imgflip.com/get_memes`
+- Random meme image generator
+- Custom top and bottom text inputs
+- Built with Vite for fast development
 
-Note: This will impact Vite dev & build performances.
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React 19
+- TypeScript
+- Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 1. Install dependencies
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Start the development server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+### 3. Build for production
+
+```bash
+npm run build
+```
+
+### 4. Preview production build
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+```text
+src/
+	components/
+		Header.tsx
+		Main.tsx
+	App.tsx
+```
+
+## Notes
+
+- Meme templates are loaded once when the app mounts.
+- If the API is unavailable, meme loading may fail until refresh/retry.
